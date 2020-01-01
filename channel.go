@@ -23,6 +23,6 @@ func mainExample() {
 		log.Fatal("Error loading .env file")
 	}
 	channelID := "UC4YaOt1yT-ZeyB0OmxHgolA"
-	subscriberCount := getSubscriberCount(channelID)
+	subscriberCount := GetSubscriberCount(channelID)
 	fmt.Printf("channel id: %v\n登録者数: %v\n", channelID, subscriberCount)
 }
