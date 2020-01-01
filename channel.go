@@ -17,6 +17,17 @@ func GetSubscriberCount(channelID string) uint64 {
 	return item.Statistics.SubscriberCount
 }
 
+func GetChannelTitle(channelID string) string {
+	service := newYoutubeService(newClient())
+	call := service.Channels.List("snippet").Id(channelID).MaxResults(1)
+	response, err := call.Do()
+	if err != nil {
+		log.Fatalf("%v", err)
+	}
+	item := response.Items[0]
+	return item.Snippet.Title
+}
+
 func mainExample() {
 	err := godotenv.Load("./.env")
 	if err != nil {
