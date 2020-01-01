@@ -36,7 +36,7 @@ func GetChannelThumbnail(channelID string) string {
 		log.Fatalf("%v", err)
 	}
 	item := response.Items[0]
-	return item.Snippet.Thumbnails.Default.Url
+	return item.Snippet.Thumbnails.High.Url
 }
 
 func mainExample() {
