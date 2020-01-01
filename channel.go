@@ -6,7 +6,7 @@ import (
 	"github.com/joho/godotenv"
 )
 
-func getSubscriberCount(channelID string) uint64 {
+func GetSubscriberCount(channelID string) uint64 {
 	service := newYoutubeService(newClient())
 	call := service.Channels.List("statistics").Id(channelID).MaxResults(1)
 	response, err := call.Do()
