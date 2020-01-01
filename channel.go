@@ -28,6 +28,17 @@ func GetChannelTitle(channelID string) string {
 	return item.Snippet.Title
 }
 
+func GetChannelThumbnail(channelID string) string {
+	service := newYoutubeService(newClient())
+	call := service.Channels.List("snippet").Id(channelID).MaxResults(1)
+	response, err := call.Do()
+	if err != nil {
+		log.Fatalf("%v", err)
+	}
+	item := response.Items[0]
+	return item.Snippet.Thumbnails.Default.Url
+}
+
 func mainExample() {
 	err := godotenv.Load("./.env")
 	if err != nil {
