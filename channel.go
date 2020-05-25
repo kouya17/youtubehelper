@@ -39,7 +39,7 @@ func GetChannelThumbnail(channelID string) string {
 	return item.Snippet.Thumbnails.High.Url
 }
 
-func mainExample() {
+func channelExample() {
 	err := godotenv.Load("./.env")
 	if err != nil {
 		log.Fatal("Error loading .env file")
